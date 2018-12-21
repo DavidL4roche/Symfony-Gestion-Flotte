@@ -3,8 +3,15 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
  */
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 body {
+    display: table;
+    width: 100%;
     font-family: 'Proza Libre', sans-serif;
 }
 
@@ -25,5 +32,11 @@ header {
 
 section {
     padding: 100px 0;
+}
+
+footer {
+    display: table-row;
+    height: 100px;
+    line-height: 100px;
 }
 
