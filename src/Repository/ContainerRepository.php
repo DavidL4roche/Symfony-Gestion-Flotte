@@ -11,4 +11,8 @@ class ContainerRepository extends EntityRepository
     {
         return $this->findAll();
     }
+
+    public function findContainerById($id) {
+        return $this->findOneBy(array('id' => $id));
+    }
 }

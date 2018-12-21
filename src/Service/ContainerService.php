@@ -18,4 +18,8 @@ class ContainerService{
     {
         return $this->entityManager->getRepository(Container::class)->findAllContainers();
     }
+
+    public function getContainerById($id) {
+        return $this->entityManager->getRepository(Container::class)->findContainerById($id);
+    }
 }
