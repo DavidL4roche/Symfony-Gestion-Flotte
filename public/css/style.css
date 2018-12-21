@@ -1,0 +1,29 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+
+body {
+    font-family: 'Proza Libre', sans-serif;
+}
+
+nav, header, h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    padding: 154px 0 100px;
+    background: linear-gradient( #00d0ff, #007eff);
+}
+
+@media (min-width: 992px) {
+    header {
+        padding: 156px 0 100px;
+    }
+}
+
+section {
+    padding: 100px 0;
+}
+
