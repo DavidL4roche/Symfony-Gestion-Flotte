@@ -5,8 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
- * @ORM\Table(name="Container")
+ * @ORM\Entity(repositoryClass="App\Repository\ContainerRepository")
+     * @ORM\Table(name="CONTAINER")
  */
 class Container
 {
@@ -34,7 +34,7 @@ class Container
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\ContainerShip")
      */
-    private $container_ship;
+    private $containership;
 
     /**
      * @return mixed
@@ -87,17 +87,17 @@ class Container
     /**
      * @return ContainerShip
      */
-    public function getContainerShip(): ContainerShip
+    public function getContainership(): ContainerShip
     {
-        return $this->container_ship;
+        return $this->containership;
     }
 
     /**
-     * @param ContainerShip $container_ship
+     * @param ContainerShip $containership
      */
-    public function setContainerShip(ContainerShip $container_ship)
+    public function setContainership(ContainerShip $containership)
     {
-        $this->container_ship = $container_ship;
+        $this->containership = $containership;
     }
 
     public function __toString()
