@@ -22,4 +22,15 @@ class ContainerShipService{
     public function getContainerShipById($id) {
         return $this->entityManager->getRepository(ContainerShip::class)->findContainerShipById($id);
     }
+
+    public function addContainerShip($request) {
+        $containerShip = new ContainerShip();
+        $containerShip->setName($request->request->get('name'));
+        $containerShip->setCaptainName($request->request->get('captain_name'));
+        $containerShip->setContainerLimit($request->request->get('container_limit'));
+
+        $this->entityManager->persist($containerShip);
+        $this->entityManager->flush();
+        return $containerShip;
+    }
 }

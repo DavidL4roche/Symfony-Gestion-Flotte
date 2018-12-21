@@ -7,6 +7,8 @@
 
             <h1>Tous les container ships</h1>
 
+            <a href="{{ path('containership_new') }}" class="btn btn-success"><i class="fa fa-plus mr-2"></i>Ajouter un ContainerShip</a>
+
             <table class="table mt-5">
                 <thead class="thead-dark">
                 <tr>
@@ -24,7 +26,7 @@
                         <td>{{ containerShip.name }}</td>
                         <td>{{ containerShip.captainName }}</td>
                         <td>{{ containerShip.containerLimit }}</td>
-                        <td><a href="{{ path('containership_info', { 'id' : containerShip.id }) }}" class="btn btn-success"><i class="fa fa-eye mr-2"></i>Voir</a></td>
+                        <td><a href="{{ path('containership_info', { 'id' : containerShip.id }) }}" class="btn btn-primary"><i class="fa fa-eye mr-2"></i>Voir</a></td>
                     </tr>
                 {% endfor %}
 

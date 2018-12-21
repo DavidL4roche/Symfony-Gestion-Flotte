@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+
+            <h1>Tous les produits</h1>
+
+            <table class="table mt-5">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Longueur</th>
+                    <th>Largeur</th>
+                    <th>Hauteur</th>
+                    <th>Voir</th>
+                </tr>
+                </thead>
+
+                {% for product in products %}
+                    <tr>
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.length }}</td>
+                        <td>{{ product.width }}</td>
+                        <td>{{ product.height }}</td>
+                        <td><a href="{{ path('product_info', { 'id' : product.id }) }}" class="btn btn-primary"><i class="fa fa-eye mr-2"></i>Voir</a></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+    </section>
+
+{% endblock %}
