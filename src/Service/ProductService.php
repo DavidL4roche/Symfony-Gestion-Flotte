@@ -22,4 +22,17 @@ class ProductService{
     public function getProductById($id) {
         return $this->entityManager->getRepository(Product::class)->findProductById($id);
     }
+
+    public function addProduct($request) {
+        $product =  new Product();
+
+        $product->setName($request->request->get('name'));
+        $product->setLength($request->request->get('length'));
+        $product->setWidth($request->request->get('width'));
+        $product->setHeight($request->request->get('height'));
+
+        $this->entityManager->persist($product);
+        $this->entityManager->flush();
+        return $product;
+    }
 }

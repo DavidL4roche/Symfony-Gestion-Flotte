@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+
+            <form method="post" class="col col-lg-6 mx-auto">
+
+                <h1 class="mb-5">Ajouter un container</h1>
+
+                <div class="form-group">
+                    <label for="">Couleur</label>
+                    <input type="text" name="color" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Container Model</label>
+                    <select name="container_model" class="form-control">
+                        {% for containerModel in containerModels %}
+                            <option value="{{ containerModel.id }}">{{ containerModel }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Container Ship</label>
+                    <select name="container_ship" class="form-control">
+                        {% for containerShip in containerShips %}
+                            <option value="{{ containerShip.id }}">{{ containerShip }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <input type="submit" value="Enregistrer le container" class="form-control btn btn-success">
+
+            </form>
+
+        </div>
+    </section>
+
+{% endblock %}
