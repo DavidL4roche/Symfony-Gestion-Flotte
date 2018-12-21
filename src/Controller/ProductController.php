@@ -1,5 +1,4 @@
 <?php
-// src/AppBundle/Controller/HomeController.php
 namespace App\Controller;
 
 use App\Service\ProductService;

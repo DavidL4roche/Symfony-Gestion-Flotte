@@ -1,10 +1,8 @@
 <?php
-// src/AppBundle/Controller/HomeController.php
 namespace App\Controller;
 
 use App\Service\ContainerProductService;
 use App\Service\ContainerService;
-use App\Service\ContainerShipService;
 use App\Service\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

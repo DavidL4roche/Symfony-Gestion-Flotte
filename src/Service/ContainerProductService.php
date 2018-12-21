@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\Entity\Container;
-use App\Entity\ContainerModel;
 use App\Entity\ContainerProduct;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;

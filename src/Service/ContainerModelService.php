@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Entity\Container;
 use App\Entity\ContainerModel;
 use Doctrine\ORM\EntityManagerInterface;
 
