@@ -7,7 +7,8 @@ use App\Entity\ContainerModel;
 use App\Entity\ContainerShip;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ContainerService{
+class ContainerService
+{
 
     private $entityManager;
 
@@ -21,11 +22,13 @@ class ContainerService{
         return $this->entityManager->getRepository(Container::class)->findAllContainers();
     }
 
-    public function getContainerById($id) {
+    public function getContainerById($id)
+    {
         return $this->entityManager->getRepository(Container::class)->findContainerById($id);
     }
 
-    public function addContainer($request) {
+    public function addContainer($request): Container
+    {
 
         $containerModel = $this->entityManager->getRepository(ContainerModel::class)->findContainerModelById($request->request->get('container_model'));
         $containerShip = $this->entityManager->getRepository(ContainerShip::class)->findContainerShipById($request->request->get('container_ship'));
@@ -33,7 +36,7 @@ class ContainerService{
         $container = new Container();
         $container->setColor($request->request->get('color'));
         $container->setContainerModel($containerModel);
-        $container->setContainership($containerShip);
+        $container->setContainerShip($containerShip);
 
         $this->entityManager->persist($container);
         $this->entityManager->flush();

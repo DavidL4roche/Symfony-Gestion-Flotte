@@ -6,16 +6,18 @@ use Doctrine\ORM\EntityRepository;
 
 class ContainerShipRepository extends EntityRepository
 {
-    public function findAllContainerShips()
+    public function findAllContainerShips(): array
     {
         return $this->findAll();
     }
 
-    public function findContainerShipById($id) {
+    public function findContainerShipById($id)
+    {
         return $this->findOneBy(array('id' => $id));
     }
 
-    public function getNbContainers() {
+    public function getNbContainers()
+    {
 
     }
 }

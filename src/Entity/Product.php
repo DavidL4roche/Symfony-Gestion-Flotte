@@ -119,7 +119,7 @@ class Product
 
     public function __toString()
     {
-        if($this->name) {
+        if ($this->name) {
             return $this->name;
         }
         return 'Product without name';

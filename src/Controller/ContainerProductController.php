@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Service\ContainerProductService;
@@ -13,8 +14,10 @@ class ContainerProductController extends AbstractController
 
     /**
      * @Route("/containerproduct", name="container_product")
+     * @param ContainerProductService $containerProductService
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function containerProductAction(ContainerProductService $containerProductService)
+    public function containerProductAction(ContainerProductService $containerProductService): \Symfony\Component\HttpFoundation\Response
     {
         $container_products = $containerProductService->getAllContainerProducts();
         return $this->render('ContainerProduct/container_products.html.twig', array(
@@ -24,11 +27,20 @@ class ContainerProductController extends AbstractController
 
     /**
      * @Route("/product-container/new/", name="product_container_new")
+     * @param Request $request
+     * @param ContainerProductService $containerProductService
+     * @param ProductService $productService
+     * @param ContainerService $containerService
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function containerProductNewAction(Request $request, ContainerProductService $containerProductService, ProductService $productService, ContainerService $containerService)
-    {
-        if($request->getMethod() == 'POST') {
-            $containerShip = $containerProductService->addContainerProduct($request);
+    public function containerProductNewAction(
+        Request $request,
+        ContainerProductService $containerProductService,
+        ProductService $productService,
+        ContainerService $containerService
+    ) {
+        if ($request->getMethod() === 'POST') {
+            $containerProductService->addContainerProduct($request);
             return $this->redirectToRoute('container_product');
         }
 

@@ -5,7 +5,8 @@ namespace App\Service;
 use App\Entity\ContainerModel;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ContainerModelService{
+class ContainerModelService
+{
 
     private $entityManager;
 

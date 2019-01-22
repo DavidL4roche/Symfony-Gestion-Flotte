@@ -5,7 +5,8 @@ namespace App\Service;
 use App\Entity\ContainerShip;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ContainerShipService{
+class ContainerShipService
+{
 
     private $entityManager;
 
@@ -19,11 +20,13 @@ class ContainerShipService{
         return $this->entityManager->getRepository(ContainerShip::class)->findAllContainerShips();
     }
 
-    public function getContainerShipById($id) {
+    public function getContainerShipById($id)
+    {
         return $this->entityManager->getRepository(ContainerShip::class)->findContainerShipById($id);
     }
 
-    public function addContainerShip($request) {
+    public function addContainerShip($request): ContainerShip
+    {
         $containerShip = new ContainerShip();
         $containerShip->setName($request->request->get('name'));
         $containerShip->setCaptainName($request->request->get('captain_name'));

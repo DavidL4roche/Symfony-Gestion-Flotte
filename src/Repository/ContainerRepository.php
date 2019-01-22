@@ -6,12 +6,13 @@ use Doctrine\ORM\EntityRepository;
 
 class ContainerRepository extends EntityRepository
 {
-    public function findAllContainers()
+    public function findAllContainers(): array
     {
         return $this->findAll();
     }
 
-    public function findContainerById($id) {
+    public function findContainerById($id)
+    {
         return $this->findOneBy(array('id' => $id));
     }
 }

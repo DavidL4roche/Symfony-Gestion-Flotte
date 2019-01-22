@@ -99,7 +99,7 @@ class ContainerShip
 
     public function __toString()
     {
-        if($this->name) {
+        if ($this->name) {
             return $this->name;
         }
         return 'ContainerShip without name';

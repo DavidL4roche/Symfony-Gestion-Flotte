@@ -5,7 +5,8 @@ namespace App\Service;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ProductService{
+class ProductService
+{
 
     private $entityManager;
 
@@ -19,12 +20,14 @@ class ProductService{
         return $this->entityManager->getRepository(Product::class)->findAllProducts();
     }
 
-    public function getProductById($id) {
+    public function getProductById($id)
+    {
         return $this->entityManager->getRepository(Product::class)->findProductById($id);
     }
 
-    public function addProduct($request) {
-        $product =  new Product();
+    public function addProduct($request): Product
+    {
+        $product = new Product();
 
         $product->setName($request->request->get('name'));
         $product->setLength($request->request->get('length'));

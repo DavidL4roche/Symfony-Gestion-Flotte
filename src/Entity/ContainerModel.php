@@ -119,7 +119,7 @@ class ContainerModel
 
     public function __toString()
     {
-        if($this->name) {
+        if ($this->name) {
             return $this->name;
         }
         return 'Container Model without name';

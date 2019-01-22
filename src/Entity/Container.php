@@ -102,7 +102,7 @@ class Container
 
     public function __toString()
     {
-        if($this->id) {
+        if ($this->id) {
             return 'Container n°' . $this->id;
         }
         return 'Container without id';

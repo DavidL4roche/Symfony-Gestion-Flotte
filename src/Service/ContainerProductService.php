@@ -7,7 +7,8 @@ use App\Entity\ContainerProduct;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ContainerProductService{
+class ContainerProductService
+{
 
     private $entityManager;
 
@@ -16,7 +17,8 @@ class ContainerProductService{
         $this->entityManager = $entityManager;
     }
 
-    public function getAllContainerProducts() {
+    public function getAllContainerProducts()
+    {
         return $this->entityManager->getRepository(ContainerProduct::class)->findAllContainerProducts();
     }
 

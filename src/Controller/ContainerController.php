@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Service\ContainerModelService;
@@ -12,8 +13,10 @@ class ContainerController extends AbstractController
 {
     /**
      * @Route("/container", name="container")
+     * @param ContainerService $containerService
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function containerAction(ContainerService $containerService)
+    public function containerAction(ContainerService $containerService): \Symfony\Component\HttpFoundation\Response
     {
         $containers = $containerService->getContainers();
         return $this->render('Container/containers.html.twig', array(
@@ -23,8 +26,11 @@ class ContainerController extends AbstractController
 
     /**
      * @Route("/container/{id}", name="container_info")
+     * @param ContainerService $containerService
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function containerIdAction(ContainerService $containerService, $id)
+    public function containerIdAction(ContainerService $containerService, int $id): \Symfony\Component\HttpFoundation\Response
     {
         $container = $containerService->getContainerById($id);
         return $this->render('Container/container_info.html.twig', array(
@@ -34,10 +40,19 @@ class ContainerController extends AbstractController
 
     /**
      * @Route("/container/new/", name="container_new")
+     * @param Request $request
+     * @param ContainerService $containerService
+     * @param ContainerShipService $containerShipService
+     * @param ContainerModelService $containerModelService
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function containerNewAction(Request $request, ContainerService $containerService, ContainerShipService $containerShipService, ContainerModelService $containerModelService)
-    {
-        if($request->getMethod() == 'POST') {
+    public function containerNewAction(
+        Request $request,
+        ContainerService $containerService,
+        ContainerShipService $containerShipService,
+        ContainerModelService $containerModelService
+    ) {
+        if ($request->getMethod() === 'POST') {
             $container = $containerService->addContainer($request);
             return $this->redirectToRoute('container_info', array('id' => $container->getId()));
         }

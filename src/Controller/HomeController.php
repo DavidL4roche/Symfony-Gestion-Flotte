@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -9,7 +10,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function homepageAction()
+    public function homepageAction(): \Symfony\Component\HttpFoundation\Response
     {
         return $this->render('Home/homepage.html.twig');
     }
